@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="Helados.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Helados"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:datos="using:Helados.Models"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="10"
+          x:Name="Content"
+          >
+
+        <Grid.Resources>
+            <datos:Helado 
+                          x:Key="ron"
+                          Nombre="Ron con Pasas" 
+                          Color="Blanco" 
+                          Precio="5000" 
+                          Sabor="Ron"/>
+        </Grid.Resources>
+        <StackPanel>
+            <TextBlock FontWeight="Bold" Text="Nombre:"/>
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Nombre}"
+                       Margin="0 0 0 10"
+                       />
+
+            <TextBlock FontWeight="Bold" Text="Color:"/>
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Color}"
+                       Margin="0 0 0 10"
+                       />
+
+            <TextBlock FontWeight="Bold" Text="Sabor"/>
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Sabor}"
+                       Margin="0 0 0 10"
+                       />
+            
+            <TextBlock FontWeight="Bold" Text="Precio:"/>
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Precio}"
+                       Margin="0 0 0 10"
+                       />
+            
+            <TextBox Text="{Binding Source={StaticResource ron}, Path=Nombre}"
+                     Margin="0 0 0 10"
+                     />
+            <Button Content="Cambiar Sabor" Click="cambiarSabor"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>
