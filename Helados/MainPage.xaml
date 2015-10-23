@@ -22,26 +22,26 @@
         </Grid.Resources>
         <StackPanel>
             <TextBlock FontWeight="Bold" Text="Nombre:"/>
-            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Nombre}"
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Nombre, Mode=TwoWay}"
                        Margin="0 0 0 10"
                        />
 
             <TextBlock FontWeight="Bold" Text="Color:"/>
-            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Color}"
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Colorm, Mode=TwoWay}"
                        Margin="0 0 0 10"
                        />
 
             <TextBlock FontWeight="Bold" Text="Sabor"/>
-            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Sabor}"
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Sabor, Mode=TwoWay}"
                        Margin="0 0 0 10"
                        />
             
             <TextBlock FontWeight="Bold" Text="Precio:"/>
-            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Precio}"
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Precio, Mode=TwoWay}"
                        Margin="0 0 0 10"
                        />
-            
-            <TextBox Text="{Binding Source={StaticResource ron}, Path=Nombre}"
+
+            <TextBox x:Name="txt" Text="{Binding Source={StaticResource ron}, Path=Nombre, Mode=OneWay}"
                      Margin="0 0 0 10"
                      />
             <Button Content="Cambiar Sabor" Click="cambiarSabor"/>
