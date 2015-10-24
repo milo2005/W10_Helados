@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="Helados.HeladosPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Helados"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:info="using:Helados.Models"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          DataContext="{Binding Source={StaticResource helados}}"
+          Padding="10"
+          >
+        <Grid.Resources>
+            <info:Helado x:Key="helado"/>
+            <info:Helados x:Key="helados"/>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox
+            x:Name="lista"
+            Grid.Row="0"
+            ItemsSource="{Binding Data}"
+            >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Rectangle  Grid.Column="0" Fill="GreenYellow"/>
+                        <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                            <TextBlock Style="{StaticResource TitleTextBlockStyle}" 
+                                       Text="{Binding Nombre}"/>
+                            <TextBlock Style="{StaticResource CaptionTextBlockStyle}" 
+                                       Text="{Binding Sabor}"/>
+                            <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                                       Text="{Binding Precio}"/>
+                            
+                        </StackPanel>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="1" DataContext="{Binding Data[1]}">
+            <TextBox x:Name="nombre" PlaceholderText="Nombre" Margin="0 0 0 10" Text="{Binding Nombre}"/>
+            <TextBox x:Name="sabor" PlaceholderText="Sabor" Margin="0 0 0 10" Text="{Binding Sabor}"/>
+            <TextBox x:Name="color" PlaceholderText="Color" Margin="0 0 0 10" Text="{Binding Color}"/>
+            <TextBox x:Name="precio" PlaceholderText="Precio" Margin="0 0 0 10" Text="{Binding Precio}"/>
+            <Button Content="Agregar" HorizontalAlignment="Right"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>

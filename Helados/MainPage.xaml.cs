@@ -32,7 +32,7 @@ namespace Helados
         {
             Helado ron = Content.Resources["ron"] as Helado;
 
-            txt.Text = "hola";
+            ron.Sabor = "Chocolate";
 
             //Helado ron = App.Current.Resources["ron"] as Helado;
         }

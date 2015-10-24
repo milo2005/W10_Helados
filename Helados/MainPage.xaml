@@ -27,7 +27,7 @@
                        />
 
             <TextBlock FontWeight="Bold" Text="Color:"/>
-            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Colorm, Mode=TwoWay}"
+            <TextBlock Text="{Binding Source={StaticResource ron}, Path=Color, Mode=TwoWay}"
                        Margin="0 0 0 10"
                        />
 
@@ -41,7 +41,7 @@
                        Margin="0 0 0 10"
                        />
 
-            <TextBox x:Name="txt" Text="{Binding Source={StaticResource ron}, Path=Nombre, Mode=OneWay}"
+            <TextBox x:Name="txt" Text="{Binding Source={StaticResource ron}, Path=Nombre, Mode=TwoWay}"
                      Margin="0 0 0 10"
                      />
             <Button Content="Cambiar Sabor" Click="cambiarSabor"/>
