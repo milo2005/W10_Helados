@@ -106,6 +106,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Helado.cs" />
+    <Compile Include="Models\HeladoConverter.cs" />
     <Compile Include="Models\Helados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

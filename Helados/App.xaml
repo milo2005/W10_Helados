@@ -3,6 +3,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Helados"
-    RequestedTheme="Light">
+    RequestedTheme="Light"
+    xmlns:info ="using:Helados.Models"
+    >
+
+    <Application.Resources>
+        <info:Helado x:Key="helado"/>
+        <info:Helados x:Key="helados"/>
+        <info:HeladoConverter x:Key="heladoConverter"/>
+    </Application.Resources>
 
 </Application>

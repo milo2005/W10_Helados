@@ -13,8 +13,7 @@
           Padding="10"
           >
         <Grid.Resources>
-            <info:Helado x:Key="helado"/>
-            <info:Helados x:Key="helados"/>
+            
         </Grid.Resources>
 
         <Grid.RowDefinitions>
@@ -35,14 +34,16 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         
-                        <Rectangle  Grid.Column="0" Fill="GreenYellow"/>
+                        <Rectangle  Grid.Column="0" 
+                                    Fill="{Binding Color
+                                            , Converter={StaticResource heladoConverter}}"/>
                         <StackPanel Grid.Column="1" Margin="10 0 0 0">
                             <TextBlock Style="{StaticResource TitleTextBlockStyle}" 
-                                       Text="{Binding Nombre}"/>
+                                       Text="{Binding Nombre, Mode=TwoWay}"/>
                             <TextBlock Style="{StaticResource CaptionTextBlockStyle}" 
-                                       Text="{Binding Sabor}"/>
+                                       Text="{Binding Sabor, Mode=TwoWay}"/>
                             <TextBlock Style="{StaticResource BodyTextBlockStyle}"
-                                       Text="{Binding Precio}"/>
+                                       Text="{Binding Precio, Mode=TwoWay}"/>
                             
                         </StackPanel>
                         
@@ -51,11 +52,11 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Row="1" DataContext="{Binding Data[1]}">
-            <TextBox x:Name="nombre" PlaceholderText="Nombre" Margin="0 0 0 10" Text="{Binding Nombre}"/>
-            <TextBox x:Name="sabor" PlaceholderText="Sabor" Margin="0 0 0 10" Text="{Binding Sabor}"/>
-            <TextBox x:Name="color" PlaceholderText="Color" Margin="0 0 0 10" Text="{Binding Color}"/>
-            <TextBox x:Name="precio" PlaceholderText="Precio" Margin="0 0 0 10" Text="{Binding Precio}"/>
+        <StackPanel Grid.Row="1" DataContext="{Binding SelectedItem, ElementName=lista}">
+            <TextBox x:Name="nombre" PlaceholderText="Nombre" Margin="0 0 0 10" Text="{Binding Nombre, Mode=TwoWay}"/>
+            <TextBox x:Name="sabor" PlaceholderText="Sabor" Margin="0 0 0 10" Text="{Binding Sabor, Mode=TwoWay}"/>
+            <TextBox x:Name="color" PlaceholderText="Color" Margin="0 0 0 10" Text="{Binding Color, Mode=TwoWay}"/>
+            <TextBox x:Name="precio" PlaceholderText="Precio" Margin="0 0 0 10" Text="{Binding Precio, Mode=TwoWay}"/>
             <Button Content="Agregar" HorizontalAlignment="Right"/>
         </StackPanel>
         

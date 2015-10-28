@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
 
 namespace Helados.Models
 {
@@ -34,9 +35,9 @@ namespace Helados.Models
             }
         }
 
-        private string precio;
+        private int precio;
 
-        public string Precio
+        public int Precio
         {
             get { return precio; }
             set {
@@ -46,9 +47,9 @@ namespace Helados.Models
             }
         }
 
-        private string color;
+        private Color color;
 
-        public string Color
+        public Color Color
         {
             get { return color; }
             set {
