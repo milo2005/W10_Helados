@@ -9,13 +9,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-          DataContext="{Binding Source={StaticResource helados}}"
           Padding="10"
           >
-        <Grid.Resources>
-            
-        </Grid.Resources>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -24,10 +19,10 @@
         <ListBox
             x:Name="lista"
             Grid.Row="0"
-            ItemsSource="{Binding Data}"
+            ItemsSource="{x:Bind ListaHelados}"
             >
             <ListBox.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="info:Helado">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10"/>
@@ -35,15 +30,15 @@
                         </Grid.ColumnDefinitions>
                         
                         <Rectangle  Grid.Column="0" 
-                                    Fill="{Binding Color
-                                            , Converter={StaticResource heladoConverter}}"/>
+                                    Fill="{x:Bind Color
+                                        , Converter={StaticResource heladoConverter}}"/>
                         <StackPanel Grid.Column="1" Margin="10 0 0 0">
                             <TextBlock Style="{StaticResource TitleTextBlockStyle}" 
-                                       Text="{Binding Nombre, Mode=TwoWay}"/>
+                                       Text="{x:Bind Nombre, Mode=TwoWay}"/>
                             <TextBlock Style="{StaticResource CaptionTextBlockStyle}" 
-                                       Text="{Binding Sabor, Mode=TwoWay}"/>
+                                       Text="{x:Bind Sabor, Mode=TwoWay}"/>
                             <TextBlock Style="{StaticResource BodyTextBlockStyle}"
-                                       Text="{Binding Precio, Mode=TwoWay}"/>
+                                       Text="{x:Bind Precio, Mode=TwoWay}"/>
                             
                         </StackPanel>
                         
@@ -52,11 +47,11 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Row="1" DataContext="{Binding SelectedItem, ElementName=lista}">
-            <TextBox x:Name="nombre" PlaceholderText="Nombre" Margin="0 0 0 10" Text="{Binding Nombre, Mode=TwoWay}"/>
-            <TextBox x:Name="sabor" PlaceholderText="Sabor" Margin="0 0 0 10" Text="{Binding Sabor, Mode=TwoWay}"/>
-            <TextBox x:Name="color" PlaceholderText="Color" Margin="0 0 0 10" Text="{Binding Color, Mode=TwoWay}"/>
-            <TextBox x:Name="precio" PlaceholderText="Precio" Margin="0 0 0 10" Text="{Binding Precio, Mode=TwoWay}"/>
+        <StackPanel Grid.Row="1" >
+            <TextBox x:Name="nombre" PlaceholderText="Nombre" Margin="0 0 0 10" Text="{x:Bind ListaHelados[1].Nombre, Mode=TwoWay}"/>
+            <TextBox x:Name="sabor" PlaceholderText="Sabor" Margin="0 0 0 10" Text="{x:Bind ListaHelados[1].Sabor, Mode=TwoWay}"/>
+            <TextBox x:Name="color" PlaceholderText="Color" Margin="0 0 0 10" Text="{x:Bind ListaHelados[1].Color, Mode=TwoWay}"/>
+            <TextBox x:Name="precio" PlaceholderText="Precio" Margin="0 0 0 10" Text="{x:Bind ListaHelados[1].Precio, Mode=TwoWay}"/>
             <Button Content="Agregar" HorizontalAlignment="Right"/>
         </StackPanel>
         
